@@ -1,0 +1,70 @@
+@media (max-width: 1200px) {
+
+
+    /*barra de navegação*/
+    .navigation {
+        width: auto;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .navigation ul {
+        margin-right: 0px;
+    }
+}
+
+@media (max-width: 1040px) {
+
+
+    .card-about-left .card-image {
+        margin: 20px 20px 20px 0px;
+    }
+
+    .card-about-right {
+        margin: 20px 0px 20px 20px;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+
+    .card-about-right {
+        position: relative;
+        width: auto;
+        height: auto;
+        margin: 20px 20px 20px 20px;
+    }
+}
+
+
+@media (max-width: 575px) {
+
+
+    .card-about-left .card-image {
+        position: relative;
+        width: 300px;
+        height: auto;
+        margin: 10px 10px 10px 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card-about-right {
+        position: relative;
+        width: auto;
+        height: auto;
+        margin: 10px 10px 10px 10px;
+        justify-content: center;
+        align-items: center;
+
+    }
+}
+
+
+@media (max-width: 320px) {
+
+
+
+}

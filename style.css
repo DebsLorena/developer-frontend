@@ -1,0 +1,627 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* define como a largura e a altura totais de um elemento são calculadas, O que é dimensionamento de caixa de borda?
+    border-box informa ao navegador para considerar qualquer borda e preenchimento nos valores especificados para largura e altura de um elemento . Se você definir a largura de um elemento para 100 pixels, esses 100 pixels incluirão qualquer borda ou preenchimento adicionado, e a caixa de conteúdo diminuirá para absorver essa largura extra*/
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #161623;
+}
+
+/*barra de navegação*/
+.navigation {
+    width: auto;
+    height: 70px;
+    background-color: #aeaece;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+.navigation ul {
+    display: flex;
+    margin-right: 200px;
+
+}
+
+.navigation ul li {
+    position: relative;
+    list-style: none;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+}
+
+.navigation ul li a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+}
+
+.navigation ul li a .icon {
+    position: relative;
+    display: block;
+    line-height: 75px;
+    font-size: 1.5em;
+    text-align: center;
+    transition: 0.5s;
+    color: #161623;
+}
+
+.navigation ul li.active a .icon {
+    transform: translateY(-32px);
+}
+
+.navigation ul li a .text {
+    position: absolute;
+    color: #161623;
+    font-weight: 400;
+    font-size: 0.75em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.navigation ul li.active a .text {
+    opacity: 1;
+    transform: translateY(10px);
+}
+
+.indicator {
+    position: absolute;
+    top: -50%;
+    width: 70px;
+    height: 70px;
+    background: rgb(81, 71, 151);
+    border-radius: 50%;
+    border: 6px solid #161623;
+    transition: 00.5s;
+}
+
+.indicator::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-right-radius: 20px;
+    box-shadow: 1px -10px 0 0 #161623;
+}
+
+
+.indicator::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-left-radius: 20px;
+    box-shadow: -1px -10px 0 0 #161623;
+}
+
+.navigation ul li:nth-child(1).active~.indicator {
+    transform: translateX(calc(70px * 0));
+}
+
+.navigation ul li:nth-child(2).active~.indicator {
+    transform: translateX(calc(70px * 1));
+}
+
+.navigation ul li:nth-child(3).active~.indicator {
+    transform: translateX(calc(70px * 2));
+}
+
+.navigation ul li:nth-child(4).active~.indicator {
+    transform: translateX(calc(70px * 3));
+}
+
+.navigation ul li:nth-child(5).active~.indicator {
+    transform: translateX(calc(70px * 4));
+}
+
+.navigation ul li:nth-child(6).active~.indicator {
+    transform: translateX(calc(70px * 5));
+}
+
+.navigation ul li:nth-child(7).active~.indicator {
+    transform: translateX(calc(70px * 6));
+}
+
+.navigation ul li:nth-child(8).active~.indicator {
+    transform: translateX(calc(70px * 7));
+}
+
+
+/*about*/
+
+
+.container-about {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: auto;
+    flex-wrap: wrap;
+    z-index: 1;
+}
+
+
+.card-about-left .card-image {
+    position: relative;
+    width: 280px;
+    height: 335px;
+    margin: 180px 40px 180px 40px;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.card-about-left img {
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    opacity: 0.4;
+    filter: grayscale(100%);
+}
+
+img:hover {
+    filter: grayscale(0%);
+}
+
+.card-about-right {
+    position: relative;
+    width: 600px;
+    height: 335px;
+    margin: 120px 40px 120px 40px;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.card-about-right h3 {
+    color: #aeaece;
+    margin: 15px 20px 15px 20px;
+}
+
+.card-about-right .inline {
+    border: 1px groove #aeaece;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 10px 0px 0px 0px;
+}
+
+.card-about-right p {
+    color: #aeaece;
+    margin: 15px 20px 15px 20px;
+    line-height: 30px
+
+}
+
+/*title and line - barra entre as section*/
+
+.title {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px groove #aeaece;
+    margin-top: 150px;
+}
+
+
+.title .inline-title {
+    margin: 30px 20px 30px 20px;
+}
+
+.title .inline-title p {
+    position: relative;
+    display: flex;
+    color: #aeaece;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 30px;
+}
+
+.title:hover {
+    background-color: #aeaece;
+}
+
+.title .inline-title p:hover {
+    color: #161623;
+
+}
+
+
+
+/*card*/
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: auto;
+    flex-wrap: wrap;
+    z-index: 1;
+    margin-top: 100px;
+}
+
+.container .card {
+    position: relative;
+    width: 280px;
+    height: 400px;
+    margin: 30px;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.container .card .content {
+    padding: 20px;
+    text-align: center;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: 0.5s;
+    margin-top: 80px;
+}
+
+.container .card:hover .content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.container .card .content a {
+    width: 150px;
+    position: relative;
+    display: inline-block;
+    padding: 8px 20px;
+    margin-top: 30px;
+    background: rgb(81, 71, 151);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    box-shadow: 0 5px 15px rgb(81, 71, 151);
+}
+
+.card1 {
+    background-image: url(./imagens/adote.PNG);
+    width: 280px;
+    height: 400px;
+    padding: 5px;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100% 100%;
+    opacity: 0.4;
+    filter: grayscale(100%);
+}
+
+
+.card1:hover {
+    filter: grayscale(0);
+    opacity: 0.9;
+}
+
+.card2 {
+    background-image: url(./imagens/bmw.PNG);
+    width: 280px;
+    height: 400px;
+    padding: 5px;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100% 100%;
+    opacity: 0.4;
+    filter: grayscale(100%);
+}
+
+.card2:hover {
+    filter: grayscale(0);
+    opacity: 0.9;
+}
+
+.card3 {
+    background-image: url(./imagens/cabeleireiro.PNG);
+    width: 280px;
+    height: 400px;
+    padding: 5px;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100% 100%;
+    opacity: 0.4;
+    filter: grayscale(100%);
+}
+
+.card3:hover {
+    filter: grayscale(0);
+    opacity: 0.9;
+}
+
+
+.card4 {
+    background-image: url(./imagens/calculadora.PNG);
+    width: 280px;
+    height: 400px;
+    padding: 5px;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100% 100%;
+    opacity: 0.4;
+    filter: grayscale(100%);
+}
+
+.card4:hover {
+    filter: grayscale(0);
+    opacity: 0.9;
+}
+
+
+.card5 {
+    background-image: url(./imagens/game.PNG);
+    width: 280px;
+    height: 400px;
+    padding: 5px;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100% 100%;
+    opacity: 0.4;
+    filter: grayscale(100%);
+}
+
+.card5:hover {
+    filter: grayscale(0);
+    opacity: 0.9;
+}
+
+
+.card6 {
+    background-image: url(./imagens/relogio\ -\ print.PNG);
+    width: 280px;
+    height: 400px;
+    padding: 5px;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100% 100%;
+    opacity: 0.4;
+    filter: grayscale(100%);
+}
+
+.card6:hover {
+    filter: grayscale(0);
+    opacity: 0.9;
+}
+
+
+.card7 {
+    background-image: url(./imagens/print-cronometro.PNG);
+    width: 280px;
+    height: 400px;
+    padding: 5px;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100% 100%;
+    opacity: 0.4;
+    filter: grayscale(100%);
+}
+
+.card7:hover {
+    filter: grayscale(0);
+    opacity: 0.9;
+}
+
+
+
+.card8 {
+    background-image: url(./imagens/print.PNG);
+    width: 280px;
+    height: 400px;
+    padding: 5px;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100% 100%;
+    opacity: 0.4;
+    filter: grayscale(100%);
+}
+
+.card8:hover {
+    filter: grayscale(0);
+    opacity: 0.9;
+}
+
+
+/*timeline*/
+
+.sectiontime {
+    line-height: 1.5;
+    font-weight: 400;
+    color: #aeaece;
+    width: auto;
+}
+
+.container-line {
+    padding: 2rem;
+    padding-bottom: 400px;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.top-section {
+    text-align: center;
+    padding: 4rem 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.timeline {
+    position: relative;
+    min-height: 150px;
+}
+
+.line {
+    position: absolute;
+    z-index: 2;
+    left: calc(50% - 1px);
+    width: 2px;
+    top: -50px;
+    bottom: -50px;
+    background-color: rgb(81, 71, 151);
+    display: none;
+
+}
+
+.line:before,
+.line:after {
+    position: absolute;
+    display: block;
+    content: '';
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    background-color: #aeaece;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.line::after {
+    bottom: 0;
+}
+
+.section {
+    display: flex;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: 600ms ease;
+    position: relative;
+    z-index: 1;
+    margin: 50px 0;
+    padding: 1rem;
+    border-radius: 1rem;
+    align-items: center;
+    min-height: 300px;
+}
+
+.section:nth-child(odd) {
+    flex-direction: row-reverse;
+    transform: translateX(100%);
+}
+
+.bead {
+    position: absolute;
+    display: block;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    background-color: #aeaece;
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
+}
+
+.content-line {
+    width: calc(50% - 2rem);
+}
+
+.show-me:nth-child(n) {
+    transform: none;
+    opacity: 1;
+}
+
+h1 {
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+/*footer*/
+
+.footer-bottom {
+    width: auto;
+    height: 70px;
+    background-color: #aeaece;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 50px;
+
+}
+
+
+.footer-bottom {
+    text-align: center;
+    padding: 15px;
+    height: 90px;
+}
+
+.copyright-link {
+    display: inline-block;
+    color: #161623;
+    padding: 15px;
+    text-decoration: none;
+}
+
+/*back*/
+
+
+/*button back*/
+
+.back-top-btn {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    background-color: #aeaece;
+    color: #161623;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    z-index: 4;
+
+    /*
+    opacity: 0;
+    visibility: hidden;
+    */
+    transition: 0.25s ease;
+}
+
+.back-top-btn.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-10px);
+}
