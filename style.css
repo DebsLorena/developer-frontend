@@ -253,16 +253,10 @@ img:hover {
     font-size: 30px;
 }
 
-.title:hover {
+.title:hover, .title .inline-title p:hover  {
     background-color: #aeaece;
-}
-
-.title .inline-title p:hover {
     color: #161623;
-
 }
-
-
 
 /*card*/
 
@@ -323,7 +317,7 @@ img:hover {
 }
 
 .card1 {
-    background-image: url(./imagens/adote.PNG);
+    background-image: url("https://github.com/DebsLorena/ecommercewithreactjs/raw/main/print.PNG");
     width: 280px;
     height: 400px;
     padding: 5px;
@@ -341,7 +335,7 @@ img:hover {
 }
 
 .card2 {
-    background-image: url(./imagens/bmw.PNG);
+    background-image: url("https://github.com/DebsLorena/halloween2/raw/main/print.PNG");
     width: 280px;
     height: 400px;
     padding: 5px;
@@ -358,7 +352,7 @@ img:hover {
 }
 
 .card3 {
-    background-image: url(./imagens/cabeleireiro.PNG);
+    background-image: url("https://github.com/DebsLorena/dashboard/raw/main/print-3.PNG");
     width: 280px;
     height: 400px;
     padding: 5px;
@@ -376,7 +370,7 @@ img:hover {
 
 
 .card4 {
-    background-image: url(./imagens/calculadora.PNG);
+    background-image: url("https://github.com/DebsLorena/adoteUmDevJr/raw/main/print.PNG");
     width: 280px;
     height: 400px;
     padding: 5px;
@@ -394,7 +388,7 @@ img:hover {
 
 
 .card5 {
-    background-image: url(./imagens/game.PNG);
+    background-image: url("https://github.com/DebsLorena/atualcabeleireiros/raw/main/print1.PNG");
     width: 280px;
     height: 400px;
     padding: 5px;
@@ -412,7 +406,7 @@ img:hover {
 
 
 .card6 {
-    background-image: url(./imagens/relogio\ -\ print.PNG);
+    background-image: url("https://github.com/DebsLorena/page-cars-react/raw/main/print1.PNG");
     width: 280px;
     height: 400px;
     padding: 5px;
@@ -430,7 +424,7 @@ img:hover {
 
 
 .card7 {
-    background-image: url(./imagens/print-cronometro.PNG);
+    background-image: url("https://github.com/DebsLorena/dashboard-react/raw/main/print1.PNG");
     width: 280px;
     height: 400px;
     padding: 5px;
@@ -449,7 +443,7 @@ img:hover {
 
 
 .card8 {
-    background-image: url(./imagens/print.PNG);
+    background-image: url("https://github.com/DebsLorena/cozinhadalo/raw/main/print.PNG");
     width: 280px;
     height: 400px;
     padding: 5px;
@@ -464,6 +458,7 @@ img:hover {
     filter: grayscale(0);
     opacity: 0.9;
 }
+
 
 
 /*timeline*/
