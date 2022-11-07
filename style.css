@@ -8,9 +8,6 @@
 }
 
 body {
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
     background: #161623;
 }
 
@@ -472,7 +469,6 @@ img:hover {
 
 .container-line {
     padding: 2rem;
-    padding-bottom: 400px;
     margin: 0 auto;
     max-width: 800px;
 }
@@ -566,29 +562,20 @@ h1 {
 /*footer*/
 
 .footer-bottom {
-    width: auto;
-    height: 70px;
+    width: 100%;
     background-color: #aeaece;
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    margin-top: 50px;
-
-}
-
-
-.footer-bottom {
+    margin-top: 10px;
     text-align: center;
-    padding: 15px;
-    height: 90px;
+
 }
 
 .copyright-link {
-    display: inline-block;
     color: #161623;
-    padding: 15px;
+    padding: 50px 10px;
     text-decoration: none;
 }
 
@@ -599,7 +586,7 @@ h1 {
 
 .back-top-btn {
     position: fixed;
-    bottom: 10px;
+    bottom: 100px;
     right: 20px;
     background-color: #aeaece;
     color: #161623;
