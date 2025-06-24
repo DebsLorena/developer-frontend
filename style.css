@@ -7,8 +7,18 @@
     font-family: 'Poppins', sans-serif;
 }
 
+html,
 body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
     background: #161623;
+}
+
+main {
+    flex: 1;
 }
 
 /*barra de navegação*/
@@ -87,7 +97,7 @@ body {
     background: rgb(81, 71, 151);
     border-radius: 50%;
     border: 6px solid #161623;
-    transition: 00.5s;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .indicator::before {
@@ -150,313 +160,165 @@ body {
 
 /*about*/
 
-
 .container-about {
-    position: relative;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    max-width: auto;
-    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+    padding: 60px 20px;
     z-index: 1;
 }
 
-
+/* Card da imagem */
 .card-about-left .card-image {
-    position: relative;
     width: 280px;
     height: 335px;
-    margin: 180px 40px 180px 40px;
-    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    margin: 0;
+    /* Margem centralizada via gap no container */
     border-radius: 15px;
-    background: rgba(255, 255, 255, 0.1);
     overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    /* sombra mais suave */
+    background: rgba(255, 255, 255, 0.15);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    transition: box-shadow 0.3s ease;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.5);
-    border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.card-about-left .card-image:hover {
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
 }
 
 .card-about-left img {
-    max-width: 100%;
-    max-height: 100%;
-    display: flex;
-    opacity: 0.4;
-    filter: grayscale(100%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(70%);
+    opacity: 0.7;
+    transition: filter 0.4s ease, opacity 0.4s ease;
+    cursor: pointer;
 }
 
-img:hover {
-    filter: grayscale(0%);
+.card-about-left img:hover {
+    filter: grayscale(0);
+    opacity: 1;
 }
 
+/* Card do texto */
 .card-about-right {
-    position: relative;
-    width: 600px;
-    height: 335px;
-    margin: 120px 40px 120px 40px;
-    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    max-width: 700px;
+    max-height: 335px;
+    margin: 0;
+    padding: 30px 40px;
+    background: rgba(255, 255, 255, 0.15);
     border-radius: 15px;
-    background: rgba(255, 255, 255, 0.1);
-    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.5);
-    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    transition: box-shadow 0.3s ease;
+}
+
+.card-about-right:hover {
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
 }
 
 .card-about-right h3 {
     color: #aeaece;
-    margin: 15px 20px 15px 20px;
+    font-weight: 500;
+    font-size: 24px;
+    margin-bottom: 12px;
 }
 
 .card-about-right .inline {
     border: 1px groove #aeaece;
-    max-width: 100%;
-    max-height: 100%;
-    margin: 10px 0px 0px 0px;
+    width: 60px;
+    margin: 0 0 20px 0;
+    opacity: 0.6;
 }
 
 .card-about-right p {
     color: #aeaece;
-    margin: 15px 20px 15px 20px;
-    line-height: 30px
-
+    line-height: 1.7;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
 }
 
-/*title and line - barra entre as section*/
-
+/*title*/
 .title {
-    width: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px groove #aeaece;
-    margin-top: 150px;
+    padding: 10px 40px;
+    background-color: rgba(174, 174, 206, 0.2);
+    cursor: pointer;
+    user-select: none;
+    margin: 40px auto;
+    transition: all 0.4s ease;
 }
 
-
-.title .inline-title {
-    margin: 30px 20px 30px 20px;
+.title:hover {
+    background-color: #514797;
 }
 
 .title .inline-title p {
-    position: relative;
-    display: flex;
-    color: #aeaece;
-    text-decoration: none;
+    margin: 0;
+    color: #514797;
     font-weight: 500;
-    font-size: 30px;
+    font-size: 28px;
+    letter-spacing: 1px;
+    transition: color 0.4s ease;
 }
 
-.title:hover, .title .inline-title p:hover  {
-    background-color: #aeaece;
-    color: #161623;
+.title:hover .inline-title p {
+    color: #f1f1f1;
 }
+
 
 /*card*/
-
-.container {
-    position: relative;
+/* Container dos cards */
+.project-card-horizontal {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: auto;
-    flex-wrap: wrap;
-    z-index: 1;
-    margin-top: 100px;
-}
-
-.container .card {
-    position: relative;
-    width: 280px;
-    height: 400px;
-    margin: 30px;
-    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
-    border-radius: 15px;
+    flex-direction: column;
     background: rgba(255, 255, 255, 0.1);
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.5);
-    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 30px;
+    margin: 20px 0;
+    border-radius: 15px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.container .card .content {
-    padding: 20px;
-    text-align: center;
-    transform: translateY(100px);
-    opacity: 0;
-    transition: 0.5s;
-    margin-top: 80px;
+.project-card-horizontal:hover {
+    background-color: rgba(174, 174, 206, 0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-.container .card:hover .content {
-    transform: translateY(0);
-    opacity: 1;
+.project-card-horizontal h3 {
+    color: #6e6b93;
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 10px;
 }
 
-.container .card .content a {
-    width: 150px;
-    position: relative;
-    display: inline-block;
-    padding: 8px 20px;
-    margin-top: 30px;
-    background: rgb(81, 71, 151);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 20px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    box-shadow: 0 5px 15px rgb(81, 71, 151);
+.project-card-horizontal p {
+    color: #aeaece;
+    line-height: 1.6;
+    font-size: 1rem;
+    font-weight: 300;
 }
-
-.card1 {
-    background-image: url("https://github.com/DebsLorena/ecommercewithreactjs/raw/main/print.PNG");
-    width: 280px;
-    height: 400px;
-    padding: 5px;
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: 100% 100%;
-    opacity: 0.4;
-    filter: grayscale(100%);
-}
-
-
-.card1:hover {
-    filter: grayscale(0);
-    opacity: 0.9;
-}
-
-.card2 {
-    background-image: url("https://github.com/DebsLorena/halloween2/raw/main/print.PNG");
-    width: 280px;
-    height: 400px;
-    padding: 5px;
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: 100% 100%;
-    opacity: 0.4;
-    filter: grayscale(100%);
-}
-
-.card2:hover {
-    filter: grayscale(0);
-    opacity: 0.9;
-}
-
-.card3 {
-    background-image: url("https://github.com/DebsLorena/dashboard/raw/main/print-3.PNG");
-    width: 280px;
-    height: 400px;
-    padding: 5px;
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: 100% 100%;
-    opacity: 0.4;
-    filter: grayscale(100%);
-}
-
-.card3:hover {
-    filter: grayscale(0);
-    opacity: 0.9;
-}
-
-
-.card4 {
-    background-image: url("https://github.com/DebsLorena/adoteUmDevJr/raw/main/print.PNG");
-    width: 280px;
-    height: 400px;
-    padding: 5px;
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: 100% 100%;
-    opacity: 0.4;
-    filter: grayscale(100%);
-}
-
-.card4:hover {
-    filter: grayscale(0);
-    opacity: 0.9;
-}
-
-
-.card5 {
-    background-image: url("https://github.com/DebsLorena/atualcabeleireiros/raw/main/print1.PNG");
-    width: 280px;
-    height: 400px;
-    padding: 5px;
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: 100% 100%;
-    opacity: 0.4;
-    filter: grayscale(100%);
-}
-
-.card5:hover {
-    filter: grayscale(0);
-    opacity: 0.9;
-}
-
-
-.card6 {
-    background-image: url("https://github.com/DebsLorena/page-cars-react/raw/main/print1.PNG");
-    width: 280px;
-    height: 400px;
-    padding: 5px;
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: 100% 100%;
-    opacity: 0.4;
-    filter: grayscale(100%);
-}
-
-.card6:hover {
-    filter: grayscale(0);
-    opacity: 0.9;
-}
-
-
-.card7 {
-    background-image: url("https://github.com/DebsLorena/dashboard-react/raw/main/print1.PNG");
-    width: 280px;
-    height: 400px;
-    padding: 5px;
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: 100% 100%;
-    opacity: 0.4;
-    filter: grayscale(100%);
-}
-
-.card7:hover {
-    filter: grayscale(0);
-    opacity: 0.9;
-}
-
-
-
-.card8 {
-    background-image: url("https://github.com/DebsLorena/cozinhadalo/raw/main/print.PNG");
-    width: 280px;
-    height: 400px;
-    padding: 5px;
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: 100% 100%;
-    opacity: 0.4;
-    filter: grayscale(100%);
-}
-
-.card8:hover {
-    filter: grayscale(0);
-    opacity: 0.9;
-}
-
-
 
 /*timeline*/
 
@@ -471,13 +333,6 @@ img:hover {
     padding: 2rem;
     margin: 0 auto;
     max-width: 800px;
-}
-
-.top-section {
-    text-align: center;
-    padding: 4rem 0;
-    max-width: 600px;
-    margin: 0 auto;
 }
 
 .timeline {
@@ -560,6 +415,12 @@ h1 {
 }
 
 /*footer*/
+footer,
+.footer-bottom,
+footer * {
+    margin: 0 !important;
+    padding: 0 !important;
+}
 
 .footer-bottom {
     width: 100%;
@@ -567,39 +428,39 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 10px;
-    margin-top: 10px;
+    border-radius: 10px 10px 0 0;
+    height: 50px;
     text-align: center;
-
+    position: relative;
 }
 
 .copyright-link {
     color: #161623;
-    padding: 50px 10px;
     text-decoration: none;
+    padding: 0 6px;
 }
 
 /*back*/
-
-
 /*button back*/
-
 .back-top-btn {
     position: fixed;
-    bottom: 100px;
+    bottom: 60px;
     right: 20px;
+    width: 50px;
+    height: 50px;
     background-color: #aeaece;
     color: #161623;
-    font-size: 20px;
-    padding: 10px;
-    border-radius: 20px;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
     z-index: 4;
-
-    /*
+    transition: 0.25s ease;
+    cursor: pointer;
     opacity: 0;
     visibility: hidden;
-    */
-    transition: 0.25s ease;
+    transform: translateY(0);
 }
 
 .back-top-btn.active {

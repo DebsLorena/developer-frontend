@@ -1,27 +1,15 @@
-
 /*barra de navegação*/
-
 const list = document.querySelectorAll('.list');
+
 function activeLink() {
-    list.forEach((item) =>
-        item.classList.remove('active'));
+    list.forEach(item => item.classList.remove('active'));
     this.classList.add('active');
 }
-list.forEach((item) =>
-    item.addEventListener('click', activeLink));
 
-/*animação cards*/
+list.forEach(item => item.addEventListener('click', activeLink));
 
-VanillaTilt.init(document.querySelectorAll(".card"), {
-    max: 25,
-    speed: 400,
-    glare: true,
-    "max-glare": 1,
-});
 
 /*animação time line*/
-
-
 function qs(selector, all = false) {
     return all ? document.querySelectorAll(selector) : document.querySelector(selector);
 }
@@ -30,23 +18,22 @@ const sections = qs('.section', true);
 const timeline = qs('.timeline');
 const line = qs('.line');
 line.style.bottom = `calc(100% - 20px)`;
+
 let prevScrollY = window.scrollY;
 let up, down;
 let full = false;
 let set = 0;
-const targetY = window.innerHeight * .8;
+const targetY = window.innerHeight * 0.8;
 
-function scrollHandler(e) {
-    const {
-        scrollY
-    } = window;
+function scrollHandler() {
+    const scrollY = window.scrollY;
     up = scrollY < prevScrollY;
     down = !up;
+
     const timelineRect = timeline.getBoundingClientRect();
-    const lineRect = line.getBoundingClientRect(); // const lineHeight = lineRect.bottom - lineRect.top;
 
     const dist = targetY - timelineRect.top;
-    console.log(dist);
+    // console.log(dist);
 
     if (down && !full) {
         set = Math.max(set, dist);
@@ -59,28 +46,25 @@ function scrollHandler(e) {
     }
 
     sections.forEach(item => {
-        // console.log(item);
-        const rect = item.getBoundingClientRect(); //     console.log(rect);
-
+        const rect = item.getBoundingClientRect();
         if (rect.top + item.offsetHeight / 5 < targetY) {
             item.classList.add('show-me');
         }
-    }); // console.log(up, down);
+    });
 
-    prevScrollY = window.scrollY;
+    prevScrollY = scrollY;
 }
 
 scrollHandler();
 line.style.display = 'block';
 window.addEventListener('scroll', scrollHandler);
 
-/*back*/
 
-
+/*back - botão voltar ao topo*/
 const header = document.querySelector("[data-header]");
 const backTopBtn = document.querySelector("[data-back-top-btn]");
 
-const headerActive = function () {
+function toggleBackToTop() {
     if (window.scrollY > 100) {
         header.classList.add("active");
         backTopBtn.classList.add("active");
@@ -90,4 +74,10 @@ const headerActive = function () {
     }
 }
 
-addEventOnElem(window, "scroll", headerActive);
+// Usa o evento scroll do window para chamar essa função
+window.addEventListener('scroll', toggleBackToTop);
+
+// Opcional: botão sobe a página suavemente ao clicar
+backTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
